@@ -122,18 +122,29 @@
 
   <div class="texto-invitacion">Estamos felices de invitarte a :</div>
   <div class="titulo-boda">Nuestra Boda</div>
-  <div class="texto-fecha">Sábado, 13 de Setiembre del 2025</div>
+
 
   <!-- Contenedor de nombres con imágenes animadas -->
   <div class="nombre-container">
-    <img src="images/foto1.jpeg" alt="Foto 1" class="fondo-img foto1" />
+    <!-- <img src="images/foto1.jpeg" alt="Foto 1" class="fondo-img foto1" />
     <img src="images/foto2.jpeg" alt="Foto 2" class="fondo-img foto2" />
-    <img src="images/foto3.jpeg" alt="Foto 3" class="fondo-img foto3" />
+    <img src="images/foto3.jpeg" alt="Foto 3" class="fondo-img foto3" /> -->
     
     <div class="nombre-pareja">Briggitte</div>
     <div class="nombre-pareja">&</div>
     <div class="nombre-pareja">José Martín</div>
   </div>
+
+    <div class="texto-fecha">Sábado, 13 de Setiembre del 2025</div>
+     <div class="texto-fecha">Solo faltan</div>
+    <div id="countdown" class="mt-2">
+      <div class="countdown-timer">
+        <span id="days">00</span>d :
+        <span id="hours">00</span>h :
+        <span id="minutes">00</span>m :
+        <span id="seconds">00</span>s
+      </div>
+    </div>
 
   <script>
     const videos = [
@@ -151,6 +162,27 @@
     videoEl.addEventListener('canplay', () => {
       videoEl.classList.add('show');
     });
+  </script>
+   <script>
+    const eventDate = new Date("2025-09-13T19:00:00").getTime();
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const timeLeft = eventDate - now;
+      if (timeLeft <= 0) {
+        document.getElementById("countdown").innerHTML = "<p>¡El gran día ha llegado!</p>";
+        return;
+      }
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+      const seconds = Math.floor((timeLeft / 1000) % 60);
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    };
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
