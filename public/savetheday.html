@@ -7,16 +7,28 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     .video-banner {
-      width: 50%;
+      width: 100%;
+      max-width: 800px;
       max-height: 800px;
       object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
     }
   </style>
 </head>
-<body class="bg-pink-50 text-center">
+<body class="bg-pink-50 flex items-center justify-center min-h-screen text-center">
 
-  <header class="flex justify-center items-center mt-6">
-    <video id="bannerVideo" class="video-banner mx-auto" autoplay muted loop playsinline>
+  <header>
+    <video id="bannerVideo" class="video-banner fade-in mx-auto" autoplay muted loop playsinline>
       <source src="" type="video/mp4">
       Tu navegador no soporta el video.
     </video>
@@ -30,8 +42,15 @@
     ];
 
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
-    document.querySelector('#bannerVideo source').src = randomVideo;
-    document.getElementById('bannerVideo').load();
+    const videoEl = document.getElementById('bannerVideo');
+
+    videoEl.querySelector('source').src = randomVideo;
+    videoEl.load();
+
+    // Aplica fade-in cuando el video esté listo
+    videoEl.addEventListener('canplay', () => {
+      videoEl.classList.add('show');
+    });
   </script>
 
 </body>
