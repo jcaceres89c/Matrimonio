@@ -86,21 +86,25 @@
     }
 
     .slider-container img {
-      position: absolute;
-      width: 90%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 
-      -webkit-mask-image: url('images/mask-nubosa.png');
-      -webkit-mask-size: cover;
-      -webkit-mask-repeat: no-repeat;
+  /* Para bordes irregulares */
+  -webkit-mask-image: url('images/mask-nubosa.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 
-      mask-image: url('images/mask-nubosa.png');
-      mask-size: cover;
-      mask-repeat: repeat;
-    }
+  mask-image: url('images/mask-nubosa.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
 
     .slider-container img.active {
       opacity: 1;
