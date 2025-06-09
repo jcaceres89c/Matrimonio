@@ -66,6 +66,7 @@
       font-family: 'Dancing Script', cursive;
       font-size: 2rem;
       color: #8b5e66;
+      margin-top: 2rem; /* separa la fecha del nombre */
       margin-bottom: 0.5rem;
     }
 
@@ -86,24 +87,24 @@
     }
 
     .slider-container img {
-  position: absolute;
-  width: 90%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
+      position: absolute;
+      width: 90%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
 
-  /* Para bordes irregulares */
-  -webkit-mask-image: url('images/mask-nubosa.png');
-  -webkit-mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
+      /* Máscara para bordes nubosos en los 4 lados */
+      -webkit-mask-image: url('images/mask-nubosa.png');
+      -webkit-mask-size: cover;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
 
-  mask-image: url('images/mask-nubosa.png');
-  mask-size: cover;
-  mask-repeat: repeat;
-}
-
-
+      mask-image: url('images/mask-nubosa.png');
+      mask-size: cover;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
 
     .slider-container img.active {
       opacity: 1;
@@ -130,7 +131,6 @@
     </video>
   </header>
 
-
   <div id="content" class="fade-in-content">
     <div class="texto-invitacion">Estamos felices de invitarte a :</div>
     <div class="titulo-boda">Nuestra Boda</div>
@@ -141,10 +141,11 @@
       <div class="nombre-pareja">José Martín</div>
     </div>
 
+    <!-- Fecha separada del contenedor de nombres -->
     <div class="texto-fecha">Sábado, 13 de Setiembre del 2025</div>
     <div class="texto-fecha">Solo faltan</div>
 
-     <!-- Contador-->
+    <!-- Contador-->
     <div id="countdown" class="mt-2">
       <div class="countdown-timer">
         <span id="days">00</span>d :
