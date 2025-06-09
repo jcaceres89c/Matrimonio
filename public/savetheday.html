@@ -66,7 +66,6 @@
       font-family: 'Dancing Script', cursive;
       font-size: 2rem;
       color: #8b5e66;
-      margin-top: 2rem; /* separa la fecha del nombre */
       margin-bottom: 0.5rem;
     }
 
@@ -94,16 +93,13 @@
       opacity: 0;
       transition: opacity 2s ease-in-out;
 
-      /* Máscara para bordes nubosos en los 4 lados */
       -webkit-mask-image: url('images/mask-nubosa.png');
       -webkit-mask-size: cover;
       -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
 
       mask-image: url('images/mask-nubosa.png');
       mask-size: cover;
-      mask-repeat: no-repeat;
-      mask-position: center;
+      mask-repeat: repeat;
     }
 
     .slider-container img.active {
@@ -141,11 +137,10 @@
       <div class="nombre-pareja">José Martín</div>
     </div>
 
-    <!-- Fecha separada del contenedor de nombres -->
     <div class="texto-fecha">Sábado, 13 de Setiembre del 2025</div>
     <div class="texto-fecha">Solo faltan</div>
 
-    <!-- Contador-->
+     <!-- Contador-->
     <div id="countdown" class="mt-2">
       <div class="countdown-timer">
         <span id="days">00</span>d :
@@ -161,28 +156,31 @@
     <img src="images/foto1.jpeg" class="active" alt="Foto 1" />
     <img src="images/foto2.jpeg" alt="Foto 2" />
     <img src="images/foto3.jpeg" alt="Foto 3" />
-    <!-- Agrega más imágenes si quieres -->
+    <!-- Más imágenes si quieres -->
   </div>
 
   <script>
+    // Videos disponibles
     const videos = [
       'videos/video1.mp4',
       'videos/video2.mp4',
       'videos/video3.mp4'
     ];
 
+    // Elegir video aleatorio
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
     const videoEl = document.getElementById('bannerVideo');
     const content = document.getElementById('content');
     const slider = document.getElementById('slider');
 
+    // Asignar fuente y cargar
     videoEl.querySelector('source').src = randomVideo;
     videoEl.load();
 
     videoEl.addEventListener('canplay', () => {
       videoEl.classList.add('show');
 
-      // Mostrar slider y contenido luego de 1.5s
+      // Mostrar slider y contenido después de 1.5 segundos
       setTimeout(() => {
         slider.classList.remove('hidden');
         startSlider();
@@ -197,28 +195,33 @@
         images[current].classList.remove('active');
         current = (current + 1) % images.length;
         images[current].classList.add('active');
-      }, 4000); // Cambia cada 4 segundos
+      }, 4000);
     }
   </script>
 
   <script>
     const eventDate = new Date("2025-09-13T19:00:00").getTime();
-    const updateCountdown = () => {
+
+    function updateCountdown() {
       const now = new Date().getTime();
       const timeLeft = eventDate - now;
+
       if (timeLeft <= 0) {
         document.getElementById("countdown").innerHTML = "<p>¡El gran día ha llegado!</p>";
         return;
       }
+
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
       const seconds = Math.floor((timeLeft / 1000) % 60);
+
       document.getElementById("days").textContent = String(days).padStart(2, "0");
       document.getElementById("hours").textContent = String(hours).padStart(2, "0");
       document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
       document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-    };
+    }
+
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
