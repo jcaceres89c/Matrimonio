@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Confirmación de asistencia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Aniyah&family=Dancing+Script&display=swap"
+    rel="stylesheet"
+  />
   <style>
     .video-banner {
       width: 100%;
@@ -13,6 +20,7 @@
       object-fit: cover;
       border-radius: 1rem;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
     }
 
     .fade-in {
@@ -23,22 +31,46 @@
     .fade-in.show {
       opacity: 1;
     }
+
+    .texto-invitacion {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #8b5e66;
+      margin-bottom: 0.5rem;
+    }
+
+    .titulo-boda {
+      font-family: 'Aniyah', cursive;
+      font-size: 3rem;
+      color: #b22222;
+    }
   </style>
 </head>
-<body class="bg-pink-50 flex items-center justify-center min-h-screen text-center">
-
+<body
+  class="bg-pink-50 flex flex-col items-center justify-center min-h-screen text-center px-4"
+>
   <header>
-    <video id="bannerVideo" class="video-banner fade-in mx-auto" autoplay muted loop playsinline>
-      <source src="" type="video/mp4">
+    <video
+      id="bannerVideo"
+      class="video-banner fade-in mx-auto"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="" type="video/mp4" />
       Tu navegador no soporta el video.
     </video>
   </header>
+
+  <div class="texto-invitacion">Estamos felices de invitarte a :</div>
+  <div class="titulo-boda">Nuestra Boda</div>
 
   <script>
     const videos = [
       'videos/video1.mp4',
       'videos/video2.mp4',
-      'videos/video3.mp4'
+      'videos/video3.mp4',
     ];
 
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
@@ -47,11 +79,9 @@
     videoEl.querySelector('source').src = randomVideo;
     videoEl.load();
 
-    // Aplica fade-in cuando el video esté listo
     videoEl.addEventListener('canplay', () => {
       videoEl.classList.add('show');
     });
   </script>
-
 </body>
 </html>
