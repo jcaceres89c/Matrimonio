@@ -23,71 +23,29 @@
       border-radius: 1rem;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
-    }
-
-    .fade-in {
       opacity: 0;
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+      transition: opacity 1.5s ease-in-out;
     }
 
-    .fade-in.show {
+    .video-banner.show {
       opacity: 1;
-      transform: translateY(0);
     }
 
-    .nombre-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin: 2rem auto;
-      height: 240px;
-    }
-
-    .fondo-img {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      opacity: 0.3;
-      border-radius: 12px;
-      z-index: 1;
+    .fade-in-content {
       opacity: 0;
       transform: translateY(20px);
-      animation: aparecer 2s ease forwards;
+      transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
     }
 
-    .foto1 {
-      left: 0;
-      top: 10px;
-      animation-delay: 0.3s;
-    }
-
-    .foto2 {
-      left: 0;
-      top: 50px;
-      transform: translateX(-50%) translateY(20px);
-      animation-delay: 0.6s;
-    }
-
-    .foto3 {
-      right: 0;
-      top: 50px;
-      animation-delay: 0.9s;
-    }
-
-    @keyframes aparecer {
-      to {
-        opacity: 0.3;
-        transform: translateY(0);
-      }
+    .fade-in-content.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .nombre-pareja {
       font-family: 'Brittany Signature', cursive;
       font-size: 5rem;
       color: #b48e12;
-      position: relative;
-      z-index: 10;
       margin: 0.5rem 0;
     }
 
@@ -110,7 +68,13 @@
       color: #8b5e66;
       margin-bottom: 0.5rem;
     }
-    
+
+    .countdown-timer {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b22222;
+    }
+
     @media (max-height: 700px), (max-width: 400px) {
       .countdown-timer {
         font-size: clamp(24px, 5vw, 48px) !important;
@@ -118,45 +82,33 @@
       .texto-invitacion {
         font-size: clamp(14px, 6vw, 20px) !important;
       }
-      .nombres span:nth-child(1),
-      .nombres span:nth-child(3) {
+      .nombre-pareja {
         font-size: clamp(24px, 8vw, 64px) !important;
-      }
-      .nombres span:nth-child(2) {
-        font-size: clamp(18px, 6vw, 48px) !important;
-      }
-      a img {
-        width: 10vw !important;
-        max-width: 100px !important;
       }
     }
   </style>
 </head>
 <body class="bg-pink-50 flex flex-col items-center justify-center min-h-screen text-center px-4">
   <header>
-    <video id="bannerVideo" class="video-banner fade-in mx-auto" autoplay muted loop playsinline>
+    <video id="bannerVideo" class="video-banner mx-auto" autoplay muted loop playsinline>
       <source src="" type="video/mp4" />
       Tu navegador no soporta el video.
     </video>
   </header>
 
-  <div class="texto-invitacion">Estamos felices de invitarte a :</div>
-  <div class="titulo-boda">Nuestra Boda</div>
+  <div id="content" class="fade-in-content">
+    <div class="texto-invitacion">Estamos felices de invitarte a :</div>
+    <div class="titulo-boda">Nuestra Boda</div>
 
-
-  <!-- Contenedor de nombres con imágenes animadas -->
-  <div class="nombre-container">
-    <!-- <img src="images/foto1.jpeg" alt="Foto 1" class="fondo-img foto1" />
-    <img src="images/foto2.jpeg" alt="Foto 2" class="fondo-img foto2" />
-    <img src="images/foto3.jpeg" alt="Foto 3" class="fondo-img foto3" /> -->
-    
-    <div class="nombre-pareja">Briggitte</div>
-    <div class="nombre-pareja">&</div>
-    <div class="nombre-pareja">José Martín</div>
-  </div>
+    <div class="w-full max-w-3xl mx-auto my-4">
+      <div class="nombre-pareja">Briggitte</div>
+      <div class="nombre-pareja">&</div>
+      <div class="nombre-pareja">José Martín</div>
+    </div>
 
     <div class="texto-fecha">Sábado, 13 de Setiembre del 2025</div>
-     <div class="texto-fecha">Solo faltan</div>
+    <div class="texto-fecha">Solo faltan</div>
+
     <div id="countdown" class="mt-2">
       <div class="countdown-timer">
         <span id="days">00</span>d :
@@ -165,6 +117,7 @@
         <span id="seconds">00</span>s
       </div>
     </div>
+  </div>
 
   <script>
     const videos = [
@@ -175,16 +128,22 @@
 
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
     const videoEl = document.getElementById('bannerVideo');
+    const content = document.getElementById('content');
 
     videoEl.querySelector('source').src = randomVideo;
     videoEl.load();
 
     videoEl.addEventListener('canplay', () => {
       videoEl.classList.add('show');
+
+      // Mostrar contenido suavemente 1.5s después
+      setTimeout(() => {
+        content.classList.add('show');
+      }, 1500);
     });
   </script>
-  <!-- El reloj contador -->
-   <script>
+
+  <script>
     const eventDate = new Date("2025-09-13T19:00:00").getTime();
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -205,6 +164,5 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
-  
 </body>
 </html>
