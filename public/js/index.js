@@ -1,11 +1,9 @@
-// index.js
-
 document.getElementById('confirm-form')?.addEventListener('submit', async function (e) {
   e.preventDefault();
 
   const input = document.getElementById('name-input');
   const error = document.getElementById('error-message');
-  const name = input.value.trim().toLowerCase();
+  const name = input.value.trim();
 
   if (!name) {
     error.textContent = 'Por favor, escribe tu nombre.';
@@ -13,18 +11,23 @@ document.getElementById('confirm-form')?.addEventListener('submit', async functi
   }
 
   try {
-    const res = await fetch('/invitados.csv');
-    const text = await res.text();
-    const lines = text.split('\n').map(l => l.trim().toLowerCase());
-    const match = lines.find(line => line === name);
+    const response = await fetch('/validar-nombre', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ nombre: name })
+    });
 
-    if (match) {
-      window.location.href = `/savetheday.html?name=${encodeURIComponent(name)}`;
+    const result = await response.json();
+
+    if (result.valido) {
+      window.location.href = `/invitados/savetheday.html?nombre=${encodeURIComponent(name)}`;
     } else {
       error.textContent = 'Nombre no encontrado. Intenta con el nombre tal como aparece en la invitación.';
     }
   } catch (err) {
-    error.textContent = 'Error al validar el nombre. Intenta nuevamente más tarde.';
     console.error(err);
+    error.textContent = 'Error al validar el nombre. Intenta nuevamente más tarde.';
   }
 });
