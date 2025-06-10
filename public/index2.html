@@ -1,28 +1,37 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Briggitte & José Martin</title>
+  <title>Briggitte & José Martin</title> <!-- Puedes cambiar el título que aparece en la pestaña del navegador -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fuente personalizada desde Google Fonts (puedes cambiarla si deseas otra tipografía) -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Mea+Culpa&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS para diseño responsive y estilos rápidos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
   <style>
+    /* Fuente personalizada desde tus propios archivos locales */
     @font-face {
       font-family: 'Brittany Signature';
-      src: url('../fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
-           url('../fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
+      src: url('../fonts/BrittanySignatureRegular.woff2') format('woff2'),
+           url('../fonts/BrittanySignatureRegular.woff') format('woff');
       font-weight: normal;
       font-style: normal;
     }
+
+    /* Estilo general del fondo, color del texto y fuente principal */
     html, body {
-      background-color: #efe1d6;
-      color: #5a3e36;
-      font-family: 'Brittany Signature', cursive;
+      background-color: #efe1d6; /* Puedes cambiar el color del fondo */
+      color: #5a3e36; /* Color del texto principal */
+      font-family: 'Brittany Signature', cursive; /* Fuente principal */
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
+      overflow: hidden; /* Previene scroll vertical */
     }
+
     body {
       display: flex;
       flex-direction: column;
@@ -31,33 +40,49 @@
       text-align: center;
       padding: 1rem;
     }
-    
+
+    /* Estilo del contador */
+    .countdown-timer {
+      font-size: clamp(36px, 7vw, 72px); /* Tamaño responsivo */
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-family: 'Dancing Script', cursive;
+      color: #B22222; /* Color del texto del contador */
+    }
+
+    /* Estilo de los nombres */
     .nombres span {
       display: inline-block;
       white-space: nowrap;
     }
     .nombres span:nth-child(1),
     .nombres span:nth-child(3) {
-      font-size: clamp(48px, 10vw, 120px);
+      font-size: clamp(48px, 10vw, 120px); /* Tamaño de los nombres */
     }
     .nombres span:nth-child(2) {
-      font-size: clamp(32px, 7vw, 120px);
+      font-size: clamp(32px, 7vw, 120px); /* Tamaño del “&” */
     }
+
+    /* Texto de invitación */
     .texto-invitacion {
       font-family: 'Dancing Script', cursive;
       color: #8b5e66;
-      font-size: clamp(20px, 8vw, 30px);
+      font-size: clamp(20px, 8vw, 30px); /* Tamaño responsivo */
       max-width: 90%;
       margin: 1rem 0;
     }
+
+    /* Imagen del sobre (puedes cambiar el archivo PNG por otro) */
     a img {
-      width: 15vw;
-      max-width: 150px;
-      min-width: 50px;
+      width: 45vw;
+      max-width: 200px;
+      min-width: 100px;
       height: auto;
-      display: block;
+      display: auto;
       margin: 0 auto;
     }
+
+    /* Ajustes para pantallas pequeñas (menor a 700px de alto o 400px de ancho) */
     @media (max-height: 700px), (max-width: 400px) {
       .countdown-timer {
         font-size: clamp(24px, 5vw, 48px) !important;
@@ -79,67 +104,86 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- Reproductor de música de fondo. Puedes cambiar el archivo MP3 -->
   <audio autoplay loop>
     <source src="music/Ed Sheeran - Thinking Out Loud.mp3" type="audio/mpeg" />
     Tu navegador no soporta audio HTML5.
   </audio>
 
   <script>
+    // Script que inicia la música al hacer clic o tocar en móviles (por restricciones del navegador)
     const myAudio = new Audio("music/Ed Sheeran - Thinking Out Loud.mp3");
     myAudio.loop = true;
+
     function iniciarAudio() {
       myAudio.play().catch(e => console.log("Error al intentar reproducir el audio:", e));
       document.removeEventListener("click", iniciarAudio);
       document.removeEventListener("touchstart", iniciarAudio);
     }
+
     document.addEventListener("click", iniciarAudio);
     document.addEventListener("touchstart", iniciarAudio);
   </script>
 
+  <!-- Sección con los nombres de los novios -->
   <div class="nombres">
     <span>Briggitte</span>
     <span>&</span>
     <span>Martin</span>
   </div>
 
+  <!-- Texto de la invitación y el contador -->
   <div class="texto-invitacion">
     <p>Estamos felices de invitarte a<br><strong>NUESTRA BODA</strong></p>
-   <!-- <div id="countdown" class="mt-2">
+    
+    <!-- Contador regresivo -->
+    <div id="countdown" class="mt-2">
       <div class="countdown-timer">
         <span id="days">00</span>d :
         <span id="hours">00</span>h :
         <span id="minutes">00</span>m :
         <span id="seconds">00</span>s
       </div>
-    </div> -->
+    </div>
+
     <p class="mt-2">¡Nos encantaría que nos acompañes en este día tan único!</p>
   </div>
 
-  <a href="savetheday.html" target="_blank" class="relative">
+  <!-- Imagen con enlace al PDF de la invitación (puedes cambiar el archivo o imagen) -->
+  <a href="documentos/invitacion.pdf" target="_blank" class="relative">
     <img src="images/sobre.png" alt="Sobre" />
   </a>
 
   <script>
-    const eventDate = new Date("2025-09-13T19:00:00").getTime();
+    // Script que actualiza el contador cada segundo
+    const eventDate = new Date("2025-09-13T19:00:00").getTime(); // Puedes cambiar la fecha y hora del evento
+
     const updateCountdown = () => {
       const now = new Date().getTime();
       const timeLeft = eventDate - now;
+
       if (timeLeft <= 0) {
         document.getElementById("countdown").innerHTML = "<p>¡El gran día ha llegado!</p>";
         return;
       }
+
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
       const seconds = Math.floor((timeLeft / 1000) % 60);
+
       document.getElementById("days").textContent = String(days).padStart(2, "0");
       document.getElementById("hours").textContent = String(hours).padStart(2, "0");
       document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
       document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
     };
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+
+    updateCountdown(); // Llama una vez al cargar
+    setInterval(updateCountdown, 1000); // Y luego cada segundo
   </script>
+
 </body>
 </html>

@@ -1,37 +1,225 @@
-<!-- savetheday.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Save the Date</title>
+  <title>Confirmación de asistencia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/common.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Aniyah&family=Dancing+Script&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Brittany Signature';
+      src: url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
+           url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .video-banner {
+      width: 100%;
+      max-width: 800px;
+      max-height: 800px;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .video-banner.show {
+      opacity: 1;
+    }
+
+    .fade-in-content {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+    }
+
+    .fade-in-content.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nombre-pareja {
+      font-family: 'Brittany Signature', cursive;
+      font-size: 5rem;
+      color: #b48e12;
+      margin: 0.5rem 0;
+      line-height: 1.4;
+      overflow: visible;
+    }
+
+    .texto-invitacion {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #8b5e66;
+      margin-bottom: 0.5rem;
+    }
+
+    .titulo-boda {
+      font-family: 'Aniyah', cursive;
+      font-size: 3rem;
+      color: #b22222;
+    }
+
+    .texto-fecha {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #8b5e66;
+      margin-bottom: 2rem;
+    }
+
+    .countdown-timer {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b22222;
+    }
+
+    .slider-container {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      margin: 0 auto 2rem auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+
+    .slider-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+
+      -webkit-mask-image: url('images/mask-nubosa.png');
+      -webkit-mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+
+      mask-image: url('images/mask-nubosa.png');
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+
+    .slider-container img.active {
+      opacity: 1;
+    }
+
+    @media (max-height: 700px), (max-width: 400px) {
+      .countdown-timer {
+        font-size: clamp(24px, 5vw, 48px) !important;
+      }
+      .texto-invitacion {
+        font-size: clamp(14px, 6vw, 20px) !important;
+      }
+      .nombre-pareja {
+        font-size: clamp(24px, 8vw, 64px) !important;
+        line-height: 1.5;
+      }
+      .texto-fecha {
+        margin-top: 3rem !important;
+      }
+    }
+  </style>
 </head>
 <body class="bg-pink-50 flex flex-col items-center justify-center min-h-screen text-center px-4">
   <header>
-    <video class="video-banner mx-auto" autoplay muted loop playsinline>
-      <source src="videos/video1.mp4" type="video/mp4" />
+    <video id="bannerVideo" class="video-banner mx-auto" autoplay muted loop playsinline>
+      <source src="" type="video/mp4" />
       Tu navegador no soporta el video.
     </video>
   </header>
 
-  <div class="fade-in">
-    <p class="text-xl text-gray-700 mt-4">Estamos felices de invitarte a:</p>
-    <h1 class="text-4xl font-bold text-pink-800 my-4">Nuestra Boda</h1>
-    <p class="text-2xl text-gray-800">Briggitte & José Martín</p>
-    <p class="text-lg text-gray-700 mt-2">Sábado, 13 de septiembre de 2025</p>
-    <p class="text-md text-gray-700">Solo faltan:</p>
-    <div id="countdown" class="text-2xl font-semibold text-red-600 mt-2">00d 00h 00m 00s</div>
+  <div id="content" class="fade-in-content">
+    <div class="texto-invitacion">Estamos felices de invitarte a :</div>
+    <div class="titulo-boda">Nuestra Boda</div>
+
+    <div class="w-full max-w-3xl mx-auto mb-8">
+      <div class="nombre-pareja">Briggitte</div>
+      <div class="nombre-pareja">&</div>
+      <div class="nombre-pareja">José Martín</div>
+    </div>
+
+    <div class="texto-fecha mt-12">Sábado, 13 de Setiembre del 2025</div>
+    <div class="texto-fecha">Solo faltan</div>
+
+    <div id="countdown" class="mt-2">
+      <div class="countdown-timer">
+        <span id="days">00</span>d :
+        <span id="hours">00</span>h :
+        <span id="minutes">00</span>m :
+        <span id="seconds">00</span>s
+      </div>
+    </div>
   </div>
 
-  <div class="slider-container mt-10">
-    <img src="images/foto1.jpeg" alt="Foto 1" class="hidden" />
-    <img src="images/foto2.jpeg" alt="Foto 2" class="hidden" />
-    <img src="images/foto3.jpeg" alt="Foto 3" class="hidden" />
+  <div id="slider" class="slider-container hidden">
+    <img src="images/foto1.jpeg" class="active" alt="Foto 1" />
+    <img src="images/foto2.jpeg" alt="Foto 2" />
+    <img src="images/foto3.jpeg" alt="Foto 3" />
+    <img src="images/foto4.jpeg" alt="Foto 4" />
+    <img src="images/foto5.jpeg" alt="Foto 5" />
   </div>
 
-  <script src="/js/common.js"></script>
-  <script src="/js/savetheday.js"></script>
+  <script>
+    const videos = ['videos/video1.mp4', 'videos/video2.mp4', 'videos/video3.mp4'];
+    const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+    const videoEl = document.getElementById('bannerVideo');
+    const content = document.getElementById('content');
+    const slider = document.getElementById('slider');
+
+    videoEl.querySelector('source').src = randomVideo;
+    videoEl.load();
+
+    videoEl.addEventListener('canplay', () => {
+      videoEl.classList.add('show');
+      setTimeout(() => {
+        slider.classList.remove('hidden');
+        startSlider();
+        content.classList.add('show');
+      }, 1500);
+    });
+
+    function startSlider() {
+      const images = slider.querySelectorAll('img');
+      let current = 0;
+      setInterval(() => {
+        images[current].classList.remove('active');
+        current = (current + 1) % images.length;
+        images[current].classList.add('active');
+      }, 4000);
+    }
+  </script>
+
+  <script>
+    const eventDate = new Date("2025-09-13T19:00:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = eventDate - now;
+
+      if (timeLeft <= 0) {
+        document.getElementById("countdown").innerHTML = "<p>¡El gran día ha llegado!</p>";
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+      const seconds = Math.floor((timeLeft / 1000) % 60);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>

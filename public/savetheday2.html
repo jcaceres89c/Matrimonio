@@ -1,0 +1,37 @@
+<!-- savetheday.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Save the Date</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/common.css" />
+</head>
+<body class="bg-pink-50 flex flex-col items-center justify-center min-h-screen text-center px-4">
+  <header>
+    <video class="video-banner mx-auto" autoplay muted loop playsinline>
+      <source src="videos/video1.mp4" type="video/mp4" />
+      Tu navegador no soporta el video.
+    </video>
+  </header>
+
+  <div class="fade-in">
+    <p class="text-xl text-gray-700 mt-4">Estamos felices de invitarte a:</p>
+    <h1 class="text-4xl font-bold text-pink-800 my-4">Nuestra Boda</h1>
+    <p class="text-2xl text-gray-800">Briggitte & José Martín</p>
+    <p class="text-lg text-gray-700 mt-2">Sábado, 13 de septiembre de 2025</p>
+    <p class="text-md text-gray-700">Solo faltan:</p>
+    <div id="countdown" class="text-2xl font-semibold text-red-600 mt-2">00d 00h 00m 00s</div>
+  </div>
+
+  <div class="slider-container mt-10">
+    <img src="images/foto1.jpeg" alt="Foto 1" class="hidden" />
+    <img src="images/foto2.jpeg" alt="Foto 2" class="hidden" />
+    <img src="images/foto3.jpeg" alt="Foto 3" class="hidden" />
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/savetheday.js"></script>
+</body>
+</html>
