@@ -1,0 +1,98 @@
+/* savetheday.css */
+
+@font-face {
+  font-family: 'Brittany Signature';
+  src: url('/fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
+       url('/fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.video-banner {
+  width: 100%;
+  max-width: 800px;
+  max-height: 800px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.video-banner.show {
+  opacity: 1;
+}
+
+.nombre-pareja {
+  font-family: 'Brittany Signature', cursive;
+  font-size: 5rem;
+  color: #b48e12;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.texto-invitacion {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #8b5e66;
+}
+
+.titulo-boda {
+  font-family: 'Aniyah', cursive;
+  font-size: 3rem;
+  color: #b22222;
+}
+
+.texto-fecha {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #8b5e66;
+  margin-bottom: 2rem;
+}
+
+.slider-container {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto 2rem auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.slider-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+
+  -webkit-mask-image: url('/images/mask-nubosa.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+
+  mask-image: url('/images/mask-nubosa.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.slider-container img.active {
+  opacity: 1;
+}
+
+@media (max-height: 700px), (max-width: 400px) {
+  .texto-invitacion {
+    font-size: clamp(14px, 6vw, 20px);
+  }
+  .nombre-pareja {
+    font-size: clamp(24px, 8vw, 64px);
+    line-height: 1.5;
+  }
+  .texto-fecha {
+    margin-top: 3rem;
+  }
+}
