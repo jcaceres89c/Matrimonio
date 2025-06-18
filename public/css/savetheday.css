@@ -173,7 +173,7 @@ body::after {
   height: 100%;
   background-repeat: repeat-y; /* Repetir verticalmente */
   background-size: contain;    /* Ajustar la imagen */
-  opacity: 0.15;               /* Desvanecido */
+  opacity: 0.25;               /* Desvanecido */
   z-index: -1;                 /* Detrás de todo */
   pointer-events: none;        /* No interfiere con clics */
 }
@@ -188,5 +188,24 @@ body::before {
 body::after {
   right: 0;
   background-image: url('../images/izquierda.png'); /* Cambia a tu imagen derecha */
+}
+
+.fondo-padres {
+  position: relative;
+  padding: 2rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.fondo-padres::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/aros.png'); /* Cambia la ruta */
+  background-repeat: no-repeat;       /* No repetir */
+  background-position: center center; /* Centrado */
+  background-size: 300px auto;        /* Control de tamaño: ancho 300px */
+  opacity: 0.08;                      /* Transparente/desvanecido */
+  z-index: -1;
 }
 
