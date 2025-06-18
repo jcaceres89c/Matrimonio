@@ -38,10 +38,17 @@
   color: #8b5e66;
 }
 
-.titulo-boda {
+/*.titulo-boda {
   font-family: 'Aniyah', cursive;
   font-size: 3rem;
   color: #b22222;
+}*/
+
+.titulo-boda {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #8b5e66;
+  margin-bottom: 2rem;
 }
 
 .texto-fecha {
