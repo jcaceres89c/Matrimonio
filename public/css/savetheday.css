@@ -248,4 +248,13 @@ body::after {
 .no-break {
   white-space: nowrap;
 }
+.fondo-iglesia {
+  background-image: url('../images/iglesia_fondo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem; /* Espacio interno opcional */
+  border-radius: 1rem; /* Redondeado opcional */
+}
+
 
