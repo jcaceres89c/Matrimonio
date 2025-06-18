@@ -89,6 +89,7 @@
   font-size: 2rem;                         /* Tamaño de letra */
   color: #8b5e66;                          /* Color rosa/malva */
   margin-bottom: 0.5rem;                  /* Espacio inferior */
+  font-weight: bold;                      /* Texto en negrita */
 }
 
 
