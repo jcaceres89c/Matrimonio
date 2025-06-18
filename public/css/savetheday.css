@@ -209,9 +209,14 @@ body::after {
   z-index: -1;
 }
 
-.icono-nombre {
-  width: 24px;        /* Tamaño de la imagen */
-  height: 24px;
-  margin-right: 8px;  /* Espacio entre la imagen y el texto */
-  vertical-align: middle; /* Alinea verticalmente con el texto */
+.nombre-con-icono {
+  display: flex;               /* Alineación horizontal */
+  align-items: center;         /* Alinea verticalmente al centro */
+  gap: 8px;                    /* Espacio entre ícono y texto (opcional si ya tienes margin) */
 }
+
+.icono-nombre {
+  width: 24px;
+  height: 24px;
+}
+
