@@ -160,7 +160,7 @@
     margin-top: 2rem !important;                 /* Separación superior forzada para subtítulo */
   }
   .Sub-nombres{
-    font-weight: bold;
+     font-weight: bold;
   }
   .slider-container {
     margin-top: 2rem !important;                 /* Separación superior forzada para Imagenes del slide */
@@ -242,6 +242,10 @@ body::after {
 .grupo-testigos-linea {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 2rem;
+  flex-wrap: nowrap; /* <-- Esto evita que salte a otra línea */
 }
+.no-break {
+  white-space: nowrap;
+}
+
