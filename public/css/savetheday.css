@@ -253,8 +253,10 @@ body::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+   opacity: 0.2;   /* Transparente/desvanecido */
   padding: 2rem; /* Espacio interno opcional */
   border-radius: 1rem; /* Redondeado opcional */
+  pointer-events: none;        /* No interfiere con clics */
 }
 
 
