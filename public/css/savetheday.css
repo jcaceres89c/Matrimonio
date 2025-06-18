@@ -162,6 +162,24 @@
   .slider-container {
     margin-top: 2rem !important;                 /* Separación superior forzada para Imagenes del slide */
   }
+  
+  .grupo-grupo-testigo-civil,
+  .grupo-grupo-testigo-religioso {
+    font-size: clamp(14px, 4vw, 18px);  /* Ajusta el tamaño dinámicamente */
+    word-break: break-word;             /* Permite romper palabras largas */
+    overflow-wrap: break-word;          /* Compatibilidad adicional */
+  }
+
+  .nombre-con-icono {
+    flex-direction: column;             /* Coloca ícono encima del texto si hay poco espacio */
+    align-items: flex-start;            /* Alineación a la izquierda */
+  }
+
+  .icono-nombre {
+    width: 20px;
+    height: 20px;
+  }
+ 
 }
 
 body::before,
