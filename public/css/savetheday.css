@@ -190,14 +190,14 @@ body::after {
   background-image: url('../images/izquierda.png'); /* Cambia a tu imagen derecha */
 }
 
-.fondo-padres {
+.fondo-padrinos {
   position: relative;
   padding: 2rem;
   z-index: 1;
   overflow: hidden;
 }
 
-.fondo-padres::before {
+.fondo-padrinos::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -205,7 +205,7 @@ body::after {
   background-repeat: no-repeat;       /* No repetir */
   background-position: center center; /* Centrado */
   background-size: 300px auto;        /* Control de tamaño: ancho 300px */
-  opacity: 0.08;                      /* Transparente/desvanecido */
+  opacity: 0.2;                      /* Transparente/desvanecido */
   z-index: -1;
 }
 
