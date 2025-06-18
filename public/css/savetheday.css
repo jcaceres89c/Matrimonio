@@ -142,7 +142,7 @@
   .countdown-timer {
     font-size: clamp(24px, 5vw, 48px) !important; /* Tamaño dinámico entre 24px y 48px */
     margin-top: 2rem !important;                  /* Espacio superior forzado */
-    margin-bottom: 1rem;                  /* Espacio inferior */
+    margin-bottom: 3rem;                  /* Espacio inferior */
   }
   .texto-invitacion {
     font-size: clamp(14px, 6vw, 20px) !important; /* Ajuste dinámico de tamaño de letra */
@@ -155,6 +155,7 @@
     margin-top: 2rem !important;                 /* Separación superior forzada para subtítulo */
   }
   .Subtitulo-2 {
+    font-size: clamp(1rem, 5vw, 2rem);           /* Tamaño adaptable desde 1rem hasta 2rem */
     margin-top: 2rem !important;                 /* Separación superior forzada para subtítulo */
   }
   .slider-container {
