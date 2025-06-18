@@ -248,15 +248,22 @@ body::after {
 .no-break {
   white-space: nowrap;
 }
+
 .fondo-iglesia {
-  background-image: url('../images/iglesia_fondo.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-   opacity: 0.05;   /* Transparente/desvanecido */
-  padding: 2rem; /* Espacio interno opcional */
-  border-radius: 1rem; /* Redondeado opcional */
-  pointer-events: none;        /* No interfiere con clics */
+  position: relative;
+  padding: 2rem;
+  z-index: 1;
+  overflow: hidden;
 }
 
-
+.fondo-iglesia::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/iglesia_fondo.png'); /* Cambia la ruta */
+  background-repeat: no-repeat;       /* No repetir */
+  background-position: center center; /* Centrado */
+  background-size: 250px auto;        /* Control de tamaño: ancho 300px */
+  opacity: 0.05;                      /* Transparente/desvanecido */
+  z-index: -1;
+}
