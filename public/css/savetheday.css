@@ -46,7 +46,7 @@
 
 .Subtitulo-1 {
   font-family: 'Dancing Script', cursive;
-  font-size: 2rem;
+  font-size: 4rem;
   color: #8b5e66;
   margin-bottom: 2rem;
 }
@@ -94,6 +94,6 @@
     line-height: 1.5;
   }
   .Subtitulo-1 {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 }
