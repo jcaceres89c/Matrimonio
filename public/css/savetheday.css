@@ -224,14 +224,17 @@ body::after {
 }
 
 .nombre-con-icono {
-  display: flex;               /* Alineación horizontal */
-  align-items: center;         /* Alinea verticalmente al centro */
-  gap: 8px;                    /* Espacio entre ícono y texto (opcional si ya tienes margin) */
+  display: inline-flex;      /* Flex horizontal y se ajusta al contenido */
+  align-items: center;       /* Centra verticalmente el ícono con el texto */
+  gap: 0.5rem;               /* Espacio entre ícono y texto */
+  margin-top: 1rem;          /* Espacio superior opcional */
+  font-weight: bold;         /* Opcional: para destacar el texto */
+  font-size: 1rem;           /* Ajusta el tamaño de texto si es necesario */
 }
 
 .icono-nombre {
-  width: 24px;
-  height: 24px;
+  width: 20px;   /* o el tamaño que desees */
+  height: 20px;
 }
 
 .grupo-testigo-civil,
@@ -263,7 +266,7 @@ body::after {
   background-image: url('../images/iglesia_fondo.png'); /* Cambia la ruta */
   background-repeat: no-repeat;       /* No repetir */
   background-position: center center; /* Centrado */
-  background-size: 250px auto;        /* Control de tamaño: ancho 300px */
-  opacity: 0.05;                      /* Transparente/desvanecido */
+  background-size: cover;        /* Control de tamaño: ancho 300px */
+  opacity: 0.15;                      /* Transparente/desvanecido */
   z-index: -1;
 }
