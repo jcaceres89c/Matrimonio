@@ -233,3 +233,9 @@ body::after {
   margin-left: 0;      /* Asegura que esté pegado a la izquierda */
   padding-left: 1rem;  /* Espacio opcional a la izquierda */
 }
+.grupo-testigos-linea {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* para que se adapte en móviles */
+  gap: 2rem;
+}
