@@ -9,6 +9,14 @@
   font-weight: normal;      /* Peso normal (no bold) */
   font-style: normal;       /* Estilo normal (no cursiva) */
 }
+@font-face {
+  font-family: 'Aniyah';
+  src: url('fonts/Aniyah/Aniyah.woff2') format('woff2'),
+       url('fonts/Aniyah/Aniyah.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 /* Estilos para el video de portada */
 .video-banner {
@@ -69,7 +77,7 @@
 
 /* Subtítulo decorativo */
 .Subtitulo-2 {
-  font-family: 'Dancing Script', cursive; /* Fuente elegante */
+  font-family: 'Aniyah', normal; /* Fuente elegante */
   font-size: 2rem;                  /* Comentado, posiblemente para usar valor responsive */
   color: #8b5e66;                         /* Color rosado */
   margin-bottom: 2rem;                   /* Separación inferior */
