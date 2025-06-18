@@ -169,7 +169,7 @@ body::after {
   content: "";
   position: fixed;
   top: 0;
-  width: 150px; /* Ancho de la imagen o el contenedor */
+  width: 180px; /* Ancho de la imagen o el contenedor */
   height: 100%;
   background-repeat: repeat-y; /* Repetir verticalmente */
   background-size: contain;    /* Ajustar la imagen */
@@ -204,8 +204,14 @@ body::after {
   background-image: url('../images/aros.png'); /* Cambia la ruta */
   background-repeat: no-repeat;       /* No repetir */
   background-position: center center; /* Centrado */
-  background-size: 300px auto;        /* Control de tamaño: ancho 300px */
+  background-size: 250px auto;        /* Control de tamaño: ancho 300px */
   opacity: 0.2;                      /* Transparente/desvanecido */
   z-index: -1;
 }
 
+.icono-nombre {
+  width: 24px;        /* Tamaño de la imagen */
+  height: 24px;
+  margin-right: 8px;  /* Espacio entre la imagen y el texto */
+  vertical-align: middle; /* Alinea verticalmente con el texto */
+}
