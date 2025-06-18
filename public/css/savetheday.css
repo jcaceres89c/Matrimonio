@@ -220,3 +220,16 @@ body::after {
   height: 24px;
 }
 
+.grupo-grupo-testigo-civil {
+  text-align: left;    /* Alinea el texto a la izquierda */
+  max-width: 400px;    /* Opcional: limita el ancho para que no ocupe toda la pantalla */
+  margin-left: 0;      /* Asegura que esté pegado a la izquierda */
+  padding-left: 1rem;  /* Espacio opcional a la izquierda */
+}
+
+.grupo-grupo-testigo-religioso {
+  text-align: right;    /* Alinea el texto a la derecha */
+  max-width: 400px;    /* Opcional: limita el ancho para que no ocupe toda la pantalla */
+  margin-left: 0;      /* Asegura que esté pegado a la izquierda */
+  padding-left: 1rem;  /* Espacio opcional a la izquierda */
+}
