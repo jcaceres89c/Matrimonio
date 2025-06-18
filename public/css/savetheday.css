@@ -4,15 +4,15 @@
 @font-face {
   font-family: 'Brittany Signature';
   /* Ruta al archivo .woff2 y .woff con formato especificado */
-  src: url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
-       url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
+  src: url('../fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
+       url('../fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
   font-weight: normal;      /* Peso normal (no bold) */
   font-style: normal;       /* Estilo normal (no cursiva) */
 }
 @font-face {
   font-family: 'Aniyah';
-  src: url('fonts/AniyahPersonalUseOnly-Regular/AniyahPersonalUseOnly-Regular.woff2') format('woff2'),
-       url('fonts/AniyahPersonalUseOnly-Regular/AniyahPersonalUseOnly-Regular.woff') format('woff');
+  src: url('../fonts/AniyahPersonalUseOnly-Regular/AniyahPersonalUseOnly-Regular.woff2') format('woff2'),
+       url('../fonts/AniyahPersonalUseOnly-Regular/AniyahPersonalUseOnly-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
