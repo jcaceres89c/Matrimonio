@@ -44,14 +44,7 @@
   color: #b22222;
 }*/
 
-.titulo-boda {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
-  color: #8b5e66;
-  margin-bottom: 2rem;
-}
-
-.texto-fecha {
+.Subtitulo-1 {
   font-family: 'Dancing Script', cursive;
   font-size: 2rem;
   color: #8b5e66;
@@ -92,9 +85,7 @@
 }
 
 @media (max-height: 700px), (max-width: 400px) {
-  .titulo-boda {
-    margin-top: 3rem;
-  }
+  
   .texto-invitacion {
     font-size: clamp(14px, 6vw, 20px);
   }
@@ -102,7 +93,7 @@
     font-size: clamp(24px, 8vw, 64px);
     line-height: 1.5;
   }
-  .texto-fecha {
+  .Subtitulo-1 {
     margin-top: 3rem;
   }
 }
