@@ -100,6 +100,7 @@
     @media (max-height: 700px), (max-width: 400px) {
   .countdown-timer {
     font-size: clamp(24px, 5vw, 48px) !important;
+    margin-top: 2rem !important;
   }
   .texto-invitacion {
     font-size: clamp(14px, 6vw, 20px) !important;
