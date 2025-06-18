@@ -1,115 +1,146 @@
 /* savetheday.css */
 
-    @font-face {
-      font-family: 'Brittany Signature';
-      src: url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
-           url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
+/* Define una fuente personalizada llamada 'Brittany Signature' */
+@font-face {
+  font-family: 'Brittany Signature';
+  /* Ruta al archivo .woff2 y .woff con formato especificado */
+  src: url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
+       url('fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
+  font-weight: normal;      /* Peso normal (no bold) */
+  font-style: normal;       /* Estilo normal (no cursiva) */
+}
 
-    .video-banner {
-      width: 100%;
-      max-width: 800px;
-      max-height: 800px;
-      object-fit: cover;
-      border-radius: 1rem;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
+/* Estilos para el video de portada */
+.video-banner {
+  width: 100%;                      /* Toma todo el ancho del contenedor */
+  max-width: 800px;                 /* Máximo ancho de 800px */
+  max-height: 800px;                /* Máxima altura de 800px */
+  object-fit: cover;                /* Recorta el video sin distorsión */
+  border-radius: 1rem;             /* Bordes redondeados */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 2rem;             /* Espacio inferior */
+  opacity: 0;                      /* Inicialmente invisible */
+  transition: opacity 1.5s ease-in-out; /* Transición suave de opacidad */
+}
 
-    .video-banner.show {
-      opacity: 1;
-    }
+/* Cuando se le agrega la clase 'show', el video se vuelve visible */
+.video-banner.show {
+  opacity: 1;
+}
 
-    .fade-in-content {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-    }
+/* Estilos para contenido que aparecerá con efecto "fade-in" */
+.fade-in-content {
+  opacity: 0;                       /* Comienza invisible */
+  transform: translateY(20px);      /* Desplazado hacia abajo 20px */
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out; /* Transiciones suaves */
+}
 
-    .fade-in-content.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Cuando se activa la clase 'show', se vuelve visible y sube a su posición */
+.fade-in-content.show {
+  opacity: 1;
+  transform: translateY(0);         /* Posición original */
+}
 
-    .nombre-pareja {
-      font-family: 'Brittany Signature', cursive;
-      font-size: 5rem;
-      color: #b48e12;
-      margin: 0.5rem 0;
-      line-height: 1.4;
-      overflow: visible;
-    }
+/* Estilos para los nombres de la pareja */
+.nombre-pareja {
+  font-family: 'Brittany Signature', cursive; /* Usa la fuente personalizada */
+  font-size: 5rem;                 /* Tamaño grande */
+  color: #b48e12;                  /* Color dorado/mostaza */
+  margin: 0.5rem 0;                /* Margen superior e inferior */
+  line-height: 1.4;                /* Altura entre líneas */
+  overflow: visible;               /* No recorta el contenido que se desborda */
+}
 
-    .texto-invitacion {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: #8b5e66;
-      margin-bottom: 0.5rem;
-    }
+/* Texto general de invitación */
+.texto-invitacion {
+  font-family: 'Dancing Script', cursive; /* Fuente cursiva tipo manuscrita */
+  font-size: 2rem;                         /* Tamaño de letra */
+  color: #8b5e66;                          /* Color rosa/malva */
+  margin-bottom: 0.5rem;                  /* Espacio inferior */
+}
 
-    .Subtitulo-1{
-      font-family: 'Dancing Script', cursive;
-    /*  font-size: 2rem;*/
-      color: #8b5e66;
-      margin-bottom: 2rem;
-    }
+/* Subtítulo decorativo */
+.Subtitulo-1 {
+  font-family: 'Dancing Script', cursive; /* Fuente elegante */
+  font-size: 2rem;                 /* Comentado, posiblemente para usar valor responsive */
+  color: #8b5e66;                         /* Color rosado */
+  margin-bottom: 2rem;                   /* Separación inferior */
+}
 
-    .countdown-timer {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #b22222;
-    }
+/* Subtítulo decorativo */
+.Subtitulo-2 {
+  font-family: 'Dancing Script', cursive; /* Fuente elegante */
+  font-size: 2rem;                  /* Comentado, posiblemente para usar valor responsive */
+  color: #8b5e66;                         /* Color rosado */
+  margin-bottom: 2rem;                   /* Separación inferior */
+}
 
-    .slider-container {
-      width: 100%;
-      max-width: 800px;
-      height: 400px;
-      margin: 0 auto 2rem auto;
-      position: relative;
-      overflow: hidden;
-      border-radius: 1rem;
-    }
 
-    .slider-container img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
 
-      -webkit-mask-image: url('../images/mask-nubosa.png');
-      -webkit-mask-size: 100% 100%;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
+/* Estilo del cronómetro de cuenta regresiva */
+.countdown-timer {
+  font-size: 2rem;           /* Tamaño del texto */
+  font-weight: bold;         /* Texto en negrita */
+  color: #b22222;            /* Color rojo oscuro */
+}
 
-      mask-image: url('../images/mask-nubosa.png');
-      mask-size: 100% 100%;
-      mask-repeat: no-repeat;
-      mask-position: center;
-    }
+/* Contenedor del slider de imágenes */
+.slider-container {
+  width: 100%;                /* Todo el ancho disponible */
+  max-width: 800px;           /* Máximo ancho */
+  height: 400px;              /* Altura fija */
+  margin: 0 auto 2rem auto;   /* Centrado con margen inferior */
+  position: relative;         /* Para posicionar elementos hijos con position: absolute */
+  overflow: hidden;           /* Oculta lo que se salga del contenedor */
+  border-radius: 1rem;        /* Bordes redondeados */
+}
 
-    .slider-container img.active {
-      opacity: 1;
-    }
+/* Imágenes del slider */
+.slider-container img {
+  position: absolute;         /* Para que se superpongan */
+  width: 100%;                /* Ocupan todo el ancho */
+  height: 100%;               /* Ocupan toda la altura */
+  object-fit: cover;          /* Ajuste de imagen sin deformar */
+  opacity: 0;                 /* Inicialmente invisibles */
+  transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
 
-    @media (max-height: 700px), (max-width: 400px) {
+  /* Máscara para dar forma personalizada a las imágenes */
+  -webkit-mask-image: url('../images/mask-nubosa.png'); /* Para navegadores basados en WebKit */
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+
+  mask-image: url('../images/mask-nubosa.png');         /* Versión estándar */
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* Imagen activa del slider (visible) */
+.slider-container img.active {
+  opacity: 1; /* Se muestra */
+}
+
+/* Estilos responsivos para pantallas pequeñas (altura <700px o ancho <400px) */
+@media (max-height: 700px), (max-width: 400px) {
   .countdown-timer {
-    font-size: clamp(24px, 5vw, 48px) !important;
-    margin-top: 2rem !important;
+    font-size: clamp(24px, 5vw, 48px) !important; /* Tamaño dinámico entre 24px y 48px */
+    margin-top: 2rem !important;                  /* Espacio superior forzado */
   }
   .texto-invitacion {
-    font-size: clamp(14px, 6vw, 20px) !important;
+    font-size: clamp(14px, 6vw, 20px) !important; /* Ajuste dinámico de tamaño de letra */
   }
   .nombre-pareja {
-    font-size: clamp(24px, 8vw, 64px) !important;
-    line-height: 1.5;
+    font-size: clamp(24px, 8vw, 64px) !important; /* Tamaño adaptable al ancho de pantalla */
+    line-height: 1.5;                             /* Más espacio entre líneas */
   }
   .Subtitulo-1 {
-    margin-top: 2rem !important;
+    margin-top: 2rem !important;                 /* Separación superior forzada para subtítulo */
+  }
+  .Subtitulo-2 {
+    margin-top: 2rem !important;                 /* Separación superior forzada para subtítulo */
+  }
+  .slider-container {
+    margin-top: 2rem !important;                 /* Separación superior forzada para Imagenes del slide */
   }
 }
