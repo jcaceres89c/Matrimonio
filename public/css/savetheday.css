@@ -223,19 +223,26 @@ body::after {
   z-index: -1;
 }
 
-.nombre-con-icono {
-  display: inline-flex;      /* Flex horizontal y se ajusta al contenido */
-  align-items: center;       /* Centra verticalmente el ícono con el texto */
-  gap: 0.5rem;               /* Espacio entre ícono y texto */
-  margin-top: 1rem;          /* Espacio superior opcional */
-  font-weight: bold;         /* Opcional: para destacar el texto */
-  font-size: 1rem;           /* Ajusta el tamaño de texto si es necesario */
+
+.nombre-con-icono.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem; /* Ajusta el espacio si deseas más o menos separación */
+  white-space: nowrap; /* Impide que el contenido se divida en múltiples líneas */
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .icono-nombre {
-  width: 20px;   /* o el tamaño que desees */
-  height: 20px;
+  width: 18px;   /* Ajusta según tu imagen */
+  height: 18px;
+  vertical-align: middle;
 }
+
+
+
+
+
 
 .grupo-testigo-civil,
 .grupo-testigo-religioso {
