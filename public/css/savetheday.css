@@ -291,9 +291,17 @@ body::after {
   z-index: -1;
 }
 
+.formal{
+  font-family: 'Brittany Signature', cursive; /* Fuente cursiva tipo manuscrita */
+  font-size: 4rem;                         /* Tamaño de letra */
+  color: #8b5e66;                          /* Color rosa/malva */
+  margin-bottom: 0.5rem;                  /* Espacio inferior */
+  font-weight: bold;
+}
+
 .texto1{
   font-family: 'Brittany Signature', cursive; /* Fuente cursiva tipo manuscrita */
-  font-size: 3rem;                         /* Tamaño de letra */
+  font-size: 2rem;                         /* Tamaño de letra */
   color: #8b5e66;                          /* Color rosa/malva */
   margin-bottom: 0.5rem;                  /* Espacio inferior */
   font-weight: bold;
@@ -303,7 +311,7 @@ body::after {
  max-width: 600px;           /* Limita el ancho del texto */
   margin: 0 auto;             /* Centra horizontalmente */
   text-align: center;         /* Centra el texto */
-  font-size: 1.125rem;        /* Tamaño legible (18px aprox) */
+  font-size: 1.5rem;        /* Tamaño legible (18px aprox) */
   color: #4b3b3b;             /* Color sobrio */
   font-family: 'Brittany Signature', cursive;
   padding: 1rem;
