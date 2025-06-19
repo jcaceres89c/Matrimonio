@@ -276,3 +276,22 @@ body::after {
   opacity: 0.15;                      /* Transparente/desvanecido */
   z-index: -1;
 }
+
+.fondo-salon {
+  position: relative;
+  padding: 2rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.fondo-salon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/salon.png'); /* Cambia la ruta */
+  background-repeat: no-repeat;       /* No repetir */
+  background-position: center center; /* Centrado */
+  background-size: cover;        /* Control de tamaño: ancho 300px */
+  opacity: 0.15;                      /* Transparente/desvanecido */
+  z-index: -1;
+}
