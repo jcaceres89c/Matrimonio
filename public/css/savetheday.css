@@ -362,23 +362,34 @@ body::after {
 
 /* Imágen Final */
 
-.marco-contenedor {
+.imagen-final-container {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto;
   position: relative;
-  width: 300px; /* ajusta según el tamaño deseado */
-  height: auto;
+  overflow: hidden;
+  border-radius: 1rem;
 }
 
-.foto-base {
+.imagen-final {
   width: 100%;
-  display: block;
-  border-radius: 1rem; /* opcional */
+  height: 100%;
+  object-fit: cover;
+
+  /* Aplicar la misma máscara del slider */
+  -webkit-mask-image: url('../images/mask-nubosa2.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+
+  mask-image: url('../images/mask-nubosa2.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
 }
 
-.marco-superior {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none; /* para que no interfiera */
-}
 
