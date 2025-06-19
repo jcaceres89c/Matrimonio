@@ -341,7 +341,7 @@ body::after {
 
 /* Boton Confirmar */
 .boton-confirmar {
-  background-color: #ec4899;  /* color rosado */
+  background-color: #b48e12;  /* color dorado */
   color: white;
   padding: 0.5rem 1.5rem;
   border: none;
@@ -353,7 +353,7 @@ body::after {
 }
 
 .boton-confirmar:hover {
-  background-color: #db2777;
+  background-color: #b48e12;
 }
 
 .boton-confirmar:active {
