@@ -341,22 +341,23 @@ body::after {
 
 /* Boton Confirmar */
 .boton-confirmar {
-  background-color: #b48e12;  /* color dorado */
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border: none;
-  border-radius: 0 999px 999px 0; /* solo lados derecho e izquierdo ovalados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* relieve */
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  background-color: #a0741f;         /* Color rosado */
+  color: white;                      /* Texto blanco */
+  padding: 0.5rem 1.5rem;            /* Espaciado interno */
+  border: none;                      /* Sin borde */
+  border-radius: 999px;              /* Borde totalmente redondeado (ambos lados) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Relieve (sombra) */
+  font-size: 1rem;                   /* Tamaño del texto */
+  cursor: pointer;                  /* Cambia el cursor al pasar por encima */
+  transition: all 0.2s ease-in-out;  /* Transición suave */
 }
 
 .boton-confirmar:hover {
-  background-color: #b48e12;
+  background-color: #8c6117;         /* Color más oscuro al pasar el cursor */
 }
 
 .boton-confirmar:active {
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* efecto presionado */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3); /* Relieve invertido al hacer clic */
 }
+
 
