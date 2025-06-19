@@ -288,10 +288,10 @@ body::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('../images/copas1.png'); /* Cambia la ruta */
+  background-image: url('../images/copas2.png'); /* Cambia la ruta */
   background-repeat: no-repeat;       /* No repetir */
   background-position: center center; /* Centrado */
   background-size: cover;        /* Control de tamaño: ancho 300px */
-  opacity: 0.15;                      /* Transparente/desvanecido */
+  opacity: 0.05;                      /* Transparente/desvanecido */
   z-index: -1;
 }
