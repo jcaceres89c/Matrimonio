@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="css/savetheday.css">
   
 </head>
+<!--Para el pop up-->
+<!-- Incluye el modal -->
+<div id="modal-nombre-container"></div>
+
+<!-- Incluye el JS -->
+<script>
+  fetch("modal.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("modal-nombre-container").innerHTML = html;
+    });
+</script>
+<script src="js/confirmacion.js"></script>
+<!-- Fin del Pop UP-->
 <body class="bg-pink-50 flex flex-col items-center justify-center min-h-screen text-center px-4">
   <header>
     <video id="bannerVideo" class="video-banner mx-auto" autoplay muted loop playsinline>
@@ -170,6 +184,10 @@
   </div>
   <button class="boton-confirmar">Confirmar</button>
 </div>
+
+<!-- Incluye PapaParse -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
 
 <!--Imagen Final-->
 <div class="mx-auto max-w-md text-center">

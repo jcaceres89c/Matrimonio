@@ -1,0 +1,12 @@
+<!-- modal/modal.html -->
+<div id="modal-nombre" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
+    <h2 class="text-lg font-semibold mb-4 text-pink-700">Confirma tu asistencia</h2>
+    <input type="text" id="nombre-input" placeholder="Ingresa tu nombre completo" class="border p-2 w-full rounded mb-4" />
+    <div class="flex justify-end gap-2">
+      <button id="cancelar-modal" class="bg-gray-300 text-gray-800 px-4 py-2 rounded">Cancelar</button>
+      <button id="enviar-nombre" class="bg-pink-500 text-white px-4 py-2 rounded">Enviar</button>
+    </div>
+    <p id="mensaje-error" class="text-red-600 text-sm mt-2 hidden">Nombre no encontrado. Intenta nuevamente.</p>
+  </div>
+</div>
