@@ -238,11 +238,6 @@ body::after {
   vertical-align: middle;
 }
 
-
-
-
-
-
 .grupo-testigo-civil,
 .grupo-testigo-religioso {
   flex: 1 1 45%;
@@ -294,4 +289,18 @@ body::after {
   background-size: cover;        /* Control de tamaño: ancho 300px */
   opacity: 0.65;                      /* Transparente/desvanecido */
   z-index: -1;
+}
+
+.texto1{
+  font-family: 'Brittany Signature', cursive; /* Fuente cursiva tipo manuscrita */
+  font-size: 1rem;                         /* Tamaño de letra */
+  color: #8b5e66;                          /* Color rosa/malva */
+  margin-bottom: 0.5rem;                  /* Espacio inferior */
+}
+
+.texto2{
+  font-family: 'Brittany Signature', cursive; /* Fuente cursiva tipo manuscrita */
+  font-size: 1rem;                         /* Tamaño de letra */
+  color: #8b5e66;                          /* Color rosa/malva */
+  margin-bottom: 0.5rem;                  /* Espacio inferior */
 }
