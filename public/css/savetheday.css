@@ -335,6 +335,25 @@ body::after {
   background-repeat: no-repeat;       /* No repetir */
   background-position: center center; /* Centrado */
   background-size: cover;        /* Control de tamaño: ancho 300px */
-  opacity: 0.20;                      /* Transparente/desvanecido */
+  opacity: 0.15;                      /* Transparente/desvanecido */
   z-index: -1;
+}
+
+/* Boton Confirmar */
+.boton-confirmar {
+  background-color: #b48e12;     /* Dorado oscuro */
+  color: white;                  /* Texto blanco */
+  padding: 0.75rem 1.5rem;       /* Espaciado interno */
+  font-size: 1.1rem;             /* Tamaño de texto */
+  font-weight: bold;            /* Negrita */
+  border: none;                 /* Sin borde */
+  border-radius: 8px;           /* Bordes redondeados */
+  cursor: pointer;              /* Cursor tipo botón */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+}
+
+.boton-confirmar:hover {
+  background-color: #d4af37;     /* Dorado más claro al pasar el mouse */
+  transform: scale(1.05);        /* Ligero agrandado */
 }
