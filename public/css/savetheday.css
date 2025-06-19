@@ -268,7 +268,7 @@ body::after {
   background-repeat: no-repeat;       /* No repetir */
   background-position: center center; /* Centrado */
   background-size: cover;        /* Control de tamaño: ancho 300px */
-  opacity: 0.15;                      /* Transparente/desvanecido */
+  opacity: 0.2;                      /* Transparente/desvanecido */
   z-index: -1;
 }
 
