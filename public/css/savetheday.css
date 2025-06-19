@@ -317,3 +317,24 @@ body::after {
   padding: 1rem;
   line-height: 1.6;
 }
+
+/*Regalos Sugeridos*/
+
+.fondo-regalo {
+  position: relative;
+  padding: 2rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.fondo-regalo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/regalos.png') /* Cambia la ruta */
+  background-repeat: no-repeat;       /* No repetir */
+  background-position: center center; /* Centrado */
+  background-size: cover;        /* Control de tamaño: ancho 300px */
+  opacity: 0.65;                      /* Transparente/desvanecido */
+  z-index: -1;
+}
