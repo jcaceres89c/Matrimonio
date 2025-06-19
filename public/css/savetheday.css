@@ -229,7 +229,6 @@ body::after {
   align-items: center;
   gap: 0.3rem; /* Ajusta el espacio si deseas más o menos separación */
   white-space: nowrap; /* Impide que el contenido se divida en múltiples líneas */
-  font-weight: bold;
   font-size: 1rem;
 }
 
