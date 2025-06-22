@@ -65,3 +65,12 @@ a img {
     max-width: 100px !important;
   }
 }
+#activar-musica {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #activar-musica {
+    display: block;
+  }
+}
