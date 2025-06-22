@@ -1,29 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("background-audio");
-  const boton = document.getElementById("activar-musica");
+  const botonMusica = document.getElementById("activar-musica");
+  const botonSobre = document.getElementById("boton-sobre");
 
-  // Mostrar botón solo en dispositivos móviles
+  // Detectar si es un dispositivo móvil
   const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  if (esMovil) {
-    boton.style.display = "block";
-  } else {
-    // En computadoras intenta reproducir automáticamente
-    audio.play().catch(err => console.log("Autoplay bloqueado en escritorio:", err));
-  }
+  // Mostrar botón solo si es móvil y no queremos usar el sobre como activador
+  // botonMusica.style.display = esMovil ? "block" : "none";
 
-  // Función para iniciar la música
-  function iniciarMusica() {
-    audio.play().then(() => {
-      boton.style.display = "none";
-      document.removeEventListener("click", iniciarMusica);
-      document.removeEventListener("touchstart", iniciarMusica);
-    }).catch(err => {
-      console.log("Error al reproducir el audio:", err);
+  // Si se hace clic en el sobre, iniciar la música también
+  if (botonSobre) {
+    botonSobre.addEventListener("click", () => {
+      audio.play().catch(err => console.log("Error al reproducir audio desde el botón sobre:", err));
     });
   }
 
-  boton.addEventListener("click", iniciarMusica);
-  document.addEventListener("click", iniciarMusica);
-  document.addEventListener("touchstart", iniciarMusica);
+  // Opción adicional si quieres dejar también el botón manual
+  botonMusica.addEventListener("click", () => {
+    audio.play().then(() => {
+      botonMusica.style.display = "none";
+    }).catch(err => {
+      console.log("Error al reproducir desde botón manual:", err);
+    });
+  });
+
+  // En escritorio, intenta reproducir automáticamente
+  if (!esMovil) {
+    audio.play().catch(err => console.log("Autoplay bloqueado en escritorio:", err));
+  }
 });
