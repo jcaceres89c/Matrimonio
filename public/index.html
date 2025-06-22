@@ -17,10 +17,31 @@
 <body class="fondo-principal">
 
   <!-- Audio que se activa al hacer clic o tocar en móviles -->
- <audio id="background-audio" loop>
-  <source src="music/Ed Sheeran - Thinking Out Loud.mp3" type="audio/mpeg" />
+ <!-- AUDIO oculto por defecto -->
+<audio id="background-audio" loop>
+  <source src="music/Ed Sheeran - Thinking Out Loud.mp3" type="audio/mpeg">
   Tu navegador no soporta audio HTML5.
 </audio>
+
+<!-- BOTÓN FLOTANTE PARA ACTIVAR LA MÚSICA -->
+<button id="activar-musica"
+  style="
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fcd5ce;
+    color: #8b5e66;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    border: none;
+  ">
+  Activar música 🎵
+</button>
+
 
 
   <!-- Contenido principal -->

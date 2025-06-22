@@ -3,25 +3,27 @@
     const audio = document.getElementById("background-audio");
     const boton = document.getElementById("activar-musica");
 
-    function reproducirAudio() {
-      if (audio.paused) {
-        audio.play().catch((e) => {
-          console.warn("Error al reproducir el audio:", e);
-        });
-      }
-      boton.style.display = "none";
-      document.removeEventListener("click", reproducirAudio);
-      document.removeEventListener("touchstart", reproducirAudio);
-    }
-
-    // Mostrar botón si el dispositivo es táctil
-    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    // Mostrar el botón SOLO si es móvil
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       boton.style.display = "block";
+    } else {
+      // En computadoras reproducir directamente
+      audio.play().catch(err => console.log("No se pudo reproducir automáticamente:", err));
     }
 
-    // Activar por clic o toque
-    boton.addEventListener("click", reproducirAudio);
-    document.addEventListener("click", reproducirAudio);
-    document.addEventListener("touchstart", reproducirAudio);
+    // Función para reproducir el audio cuando se toca
+    function iniciarMusica() {
+      audio.play().then(() => {
+        boton.style.display = "none";
+        document.removeEventListener("click", iniciarMusica);
+        document.removeEventListener("touchstart", iniciarMusica);
+      }).catch((e) => {
+        console.log("Error al reproducir música:", e);
+      });
+    }
+
+    boton.addEventListener("click", iniciarMusica);
+    document.addEventListener("click", iniciarMusica);
+    document.addEventListener("touchstart", iniciarMusica);
   });
 </script>
