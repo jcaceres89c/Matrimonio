@@ -1,33 +1,10 @@
-document.getElementById('confirm-form')?.addEventListener('submit', async function (e) {
-  e.preventDefault();
+const myAudio = document.getElementById("background-audio");
 
-  const input = document.getElementById('name-input');
-  const error = document.getElementById('error-message');
-  const name = input.value.trim();
+function iniciarAudio() {
+  myAudio.play().catch(e => console.log("Error al intentar reproducir el audio:", e));
+  document.removeEventListener("click", iniciarAudio);
+  document.removeEventListener("touchstart", iniciarAudio);
+}
 
-  if (!name) {
-    error.textContent = 'Por favor, escribe tu nombre.';
-    return;
-  }
-
-  try {
-    const response = await fetch('/validar-nombre', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ nombre: name })
-    });
-
-    const result = await response.json();
-
-    if (result.valido) {
-      window.location.href = `/invitados/savetheday.html?nombre=${encodeURIComponent(name)}`;
-    } else {
-      error.textContent = 'Nombre no encontrado. Intenta con el nombre tal como aparece en la invitación.';
-    }
-  } catch (err) {
-    console.error(err);
-    error.textContent = 'Error al validar el nombre. Intenta nuevamente más tarde.';
-  }
-});
+document.addEventListener("click", iniciarAudio);
+document.addEventListener("touchstart", iniciarAudio);

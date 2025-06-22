@@ -1,27 +1,67 @@
-/* index.css */
-
-.hero-text {
-  font-size: 2rem;
-  color: #8b5e66;
+@font-face {
+  font-family: 'Brittany Signature';
+  src: url('../fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff2') format('woff2'),
+       url('../fonts/BrittanySignatureRegular/BrittanySignatureRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.nombre {
-  font-size: 4rem;
+body {
+  background-color: #efe1d6;
+  color: #5a3e36;
   font-family: 'Brittany Signature', cursive;
-  color: #b48e12;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.confirm-button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #b22222;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1.25rem;
-  transition: background-color 0.3s ease;
+.nombres span {
+  display: inline-block;
+  white-space: nowrap;
 }
 
-.confirm-button:hover {
-  background-color: #8b1a1a;
+.nombres span:nth-child(1),
+.nombres span:nth-child(3) {
+  font-size: clamp(48px, 10vw, 120px);
+}
+
+.nombres span:nth-child(2) {
+  font-size: clamp(32px, 7vw, 120px);
+}
+
+.texto-invitacion {
+  font-family: 'Dancing Script', cursive;
+  color: #8b5e66;
+  font-size: clamp(20px, 8vw, 30px);
+  max-width: 90%;
+  margin: 1rem 0;
+}
+
+a img {
+  width: 15vw;
+  max-width: 150px;
+  min-width: 50px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-height: 700px), (max-width: 400px) {
+  .texto-invitacion {
+    font-size: clamp(14px, 6vw, 20px) !important;
+  }
+
+  .nombres span:nth-child(1),
+  .nombres span:nth-child(3) {
+    font-size: clamp(24px, 8vw, 64px) !important;
+  }
+
+  .nombres span:nth-child(2) {
+    font-size: clamp(18px, 6vw, 48px) !important;
+  }
+
+  a img {
+    width: 10vw !important;
+    max-width: 100px !important;
+  }
 }
